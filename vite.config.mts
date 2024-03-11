@@ -2,7 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import { viteMockServe } from 'vite-plugin-mock';
 import type { UserConfig, ConfigEnv } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
-import externalGlobals from 'rollup-plugin-external-globals';
+// import externalGlobals from 'rollup-plugin-external-globals';
 import AutoImport from 'unplugin-auto-import/vite';
 import Icons from 'unplugin-icons/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -15,16 +15,16 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 // import ViteCompression from 'vite-plugin-compression'; // gzip 压缩
 // import brotli from 'rollup-plugin-brotli'; // br 压缩 最新的 效果更好
-import { createHtmlPlugin } from 'vite-plugin-html';
+// import { createHtmlPlugin } from 'vite-plugin-html';
 import { manualChunksPlugin } from 'vite-plugin-webpackchunkname'; // 根据路由来分开chunk或合并chunk 第三方插件实现
 
 // 不需要打包的第三方包
-const globals = externalGlobals({
-    moment: 'moment',
-    jspdf: 'jspdf',
-    xlsx: 'XLSX',
-    echart: 'echart'
-});
+// const globals = externalGlobals({
+//     moment: 'moment',
+//     jspdf: 'jspdf',
+//     xlsx: 'XLSX',
+//     echart: 'echart'
+// });
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     // 获取当前工作目录
@@ -149,7 +149,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
                     index: fileURLToPath(new URL('./index.html', import.meta.url))
                 },
                 external: ['moment', 'jspdf', 'xlsx', 'echart'], // 不需要打包的第三方包
-                plugins: [visualizer({ open: true }), globals], // visualizer 打包分析   globals: 不打包的第三方包
+                plugins: [visualizer({ open: true })], // visualizer 打包分析   globals: 不打包的第三方包
                 experimentalLogSideEffects: true, // 打印有副作用的文件
                 treeshake: {
                     // 合并有副作用的包
