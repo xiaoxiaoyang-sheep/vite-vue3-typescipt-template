@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AIChat</title>
+    </head>
+    <body>
+        <!-- 令 id="app" 便于vue进行挂载 -->
+        <div id="app"></div>
+        <!-- 引入main.ts文件 -->
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+    <!-- 另一种外链的方法 -->
+    <%- monentscript %> <%- echartscript %> <%- jspdfscript %> <%- xlsxscript %>
+    <!-- 外链形式引入第三方包 -->
+    <!-- <script src="https://.../moment.min.js"></script>
+    <script src="https://.../xlsx.full.min.js"></script>
+    <script src="https://.../jspdf.polyfills.umd.js"></script>
+    <script src="https://.../jspdf.umd.min.js"></script> -->
+</html>
